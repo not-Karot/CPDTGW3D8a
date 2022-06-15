@@ -1,5 +1,20 @@
 module CPDTGW3D8a
 
-greet() = print("Hello World!")
+    using LinearAlgebraicRepresentation
+    using IntervalTrees
+    using NearestNeighbors
+    using Triangle
+    using Triangulate
+	using SparseArrays
+	using LinearAlgebra
+	using Distributed
+	Lar = LinearAlgebraicRepresentation
 
-end # module
+    include("./minimal_cycles.jl")
+    include("./dimension_travel.jl")
+    include("./planar_arrangement.jl")
+    include("./spatial_arrangement.jl")
+
+    export planar_arrangement, spatial_arrangement
+
+end
