@@ -1,3 +1,4 @@
+import CPDTGW3D8a
 Lar = LinearAlgebraicRepresentation
 
 """
@@ -249,7 +250,7 @@ function spatial_arrangement(
 		copFE::Lar.ChainOp, multiproc::Bool=false)
 
 	# face subdivision
-	rV, rcopEV, rcopFE = Lar.Arrangement.spatial_arrangement_1( V,copEV,copFE,multiproc )
+	rV, rcopEV, rcopFE = CPDTGW3D8a.spatial_arrangement_1( V,copEV,copFE,multiproc )
 
 	bicon_comps = Lar.Arrangement.biconnected_components(rcopEV)
 	#W,bicon_comps = Lar.biconnectedComponent((W,EV))
