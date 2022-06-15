@@ -2,6 +2,8 @@ using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
 using SparseArrays
 
+using CPDTGW3D8a
+
 
 function interior_to_f(triangle,f,V,FV,EV,FE)
 	v1,v2,v3 = triangle

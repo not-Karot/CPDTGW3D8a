@@ -1,6 +1,7 @@
 using LinearAlgebra
 Lar = LinearAlgebraicRepresentation
 
+using CPDTGW3D8a
 function submanifold_mapping(vs)
     u1 = vs[2,:] - vs[1,:]
     u2 = vs[3,:] - vs[1,:]

@@ -1,6 +1,8 @@
 using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
 
+using CPDTGW3D8a
+
 """
     frag_edge_channel(in_chan, out_chan,
         V::Lar.Points, EV::Lar.ChainOp, bigPI)

@@ -1,6 +1,8 @@
 using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
 
+using CPDTGW3D8a
+
 function minimal_2cycles(V::Lar.Points, EV::Lar.ChainOp)
 
     function edge_angle(v::Int, e::Int)

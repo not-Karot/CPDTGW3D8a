@@ -1,4 +1,6 @@
+using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
+using CPDTGW3D8a
 
 """
 	frag_face_channel(in_chan, out_chan, V, EV, FE, sp_idx)
@@ -35,7 +37,7 @@ function frag_face(V::Matrix{Float64}, EV::SparseMatrixCSC{Int8, Int64}, FE::Spa
 
     sV::Matrix{Float64} = V[sigmavs, :]
     sEV::SparseMatrixCSC{Int8, Int64} = EV[FE[sigma, :].nzind, sigmavs]
-    M::Matrix{Float64} = Lar.CPDTGW3D8a.submanifold_mapping(sV)
+    M::Matrix{Float64} = CPDTGW3D8a.submanifold_mapping(sV)
    @views tV::Matrix{Float64} = ([V ones(vs_num)]*M)[:, 1:3]
     sV = tV[sigmavs, :]
 
@@ -249,12 +251,12 @@ function spatial_arrangement(
 		copFE::Lar.ChainOp, multiproc::Bool=false)
 
 	# face subdivision
-	rV, rcopEV, rcopFE = Lar.CPDTGW3D8a.spatial_arrangement_1( V,copEV,copFE,multiproc )
+	rV, rcopEV, rcopFE = CPDTGW3D8a.spatial_arrangement_1( V,copEV,copFE,multiproc )
 
 	bicon_comps = CPDTGW3D8a.biconnected_components(rcopEV)
 	#W,bicon_comps = Lar.biconnectedComponent((W,EV))
 	#@error "comps# = $(length(bicon_comps))"
 	# 3-complex and containment graph
 
-	rV, rEV, rFE, rCF = Lar.CPDTGW3D8a.spatial_arrangement_2(rV, rcopEV, rcopFE)
+	rV, rEV, rFE, rCF = CPDTGW3D8a.spatial_arrangement_2(rV, rcopEV, rcopFE)
 end
