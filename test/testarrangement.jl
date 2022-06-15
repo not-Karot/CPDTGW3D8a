@@ -1,5 +1,3 @@
-using Pkg
-Pkg.activate()
 using CPDTGW3D8a
 using ViewerGL, LinearAlgebra
 GL = ViewerGL
