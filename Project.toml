@@ -2,3 +2,6 @@ name = "CPDTGW3D8a"
 uuid = "36e00861-4569-4e79-97db-cf11f7c5b344"
 authors = ["not-Karot <52074617+not-Karot@users.noreply.github.com>"]
 version = "0.1.0"
+
+[deps]
+LinearAlgebraicRepresentation = "95167b0c-186a-594b-a231-52369c6de044"
