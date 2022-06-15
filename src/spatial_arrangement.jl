@@ -37,13 +37,13 @@ function frag_face(V::Matrix{Float64}, EV::SparseMatrixCSC{Int8, Int64}, FE::Spa
 
     sV::Matrix{Float64} = V[sigmavs, :]
     sEV::SparseMatrixCSC{Int8, Int64} = EV[FE[sigma, :].nzind, sigmavs]
-    M::Matrix{Float64} = CPDTGW3D8a.submanifold_mapping(sV)
+    M::Matrix{Float64} = Lar.Arrangement.submanifold_mapping(sV)
    @views tV::Matrix{Float64} = ([V ones(vs_num)]*M)[:, 1:3]
     sV = tV[sigmavs, :]
 
     # sigma face intersection with faces in sp_idx[sigma]
     Threads.@threads for i in sp_idx[sigma]
-        tmpV::Matrix{Any}, tmpEV::SparseMatrixCSC{Int8, Int64} = CPDTGW3D8a.face_int(tV, EV, FE[i, :])
+        tmpV::Matrix{Any}, tmpEV::SparseMatrixCSC{Int8, Int64} = Lar.Arrangement.face_int(tV, EV, FE[i, :])
         sV, sEV = Lar.skel_merge(sV, sEV, tmpV, tmpEV)
     end
 
@@ -253,7 +253,7 @@ function spatial_arrangement(
 	# face subdivision
 	rV, rcopEV, rcopFE = CPDTGW3D8a.spatial_arrangement_1( V,copEV,copFE,multiproc )
 
-	bicon_comps = CPDTGW3D8a.biconnected_components(rcopEV)
+	bicon_comps = Lar.Arrangement.biconnected_components(rcopEV)
 	#W,bicon_comps = Lar.biconnectedComponent((W,EV))
 	#@error "comps# = $(length(bicon_comps))"
 	# 3-complex and containment graph
