@@ -1,6 +1,4 @@
-using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
-using CPDTGW3D8a
 
 """
 	frag_face_channel(in_chan, out_chan, V, EV, FE, sp_idx)
@@ -207,6 +205,7 @@ function spatial_arrangement_1(
 	rV, rEV, rFE = merge_vertices(rV, rEV, rFE)
   return rV, rEV, rFE
 end
+
 """
 	removeinnerloops(g, nFE)
 
@@ -250,10 +249,12 @@ function spatial_arrangement(
 		copFE::Lar.ChainOp, multiproc::Bool=false)
 
 	# face subdivision
-	rV, rcopEV, rcopFE = CPDTGW3D8a.spatial_arrangement_1( V,copEV,copFE,multiproc )
+	rV, rcopEV, rcopFE = Lar.Arrangement.spatial_arrangement_1( V,copEV,copFE,multiproc )
 
 	bicon_comps = Lar.Arrangement.biconnected_components(rcopEV)
+	#W,bicon_comps = Lar.biconnectedComponent((W,EV))
+	#@error "comps# = $(length(bicon_comps))"
+	# 3-complex and containment graph
 
-
-	rV, rEV, rFE, rCF = CPDTGW3D8a.spatial_arrangement_2(rV, rcopEV, rcopFE)
+	rV, rEV, rFE, rCF = Lar.Arrangement.spatial_arrangement_2(rV, rcopEV, rcopFE)
 end
