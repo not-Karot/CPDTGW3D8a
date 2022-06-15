@@ -1,9 +1,10 @@
+using Pkg
+Pkg.activate()
 using CPDTGW3D8a
 using ViewerGL, LinearAlgebra
 GL = ViewerGL
 using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
-using CPDTGW3D8a
 
 #include("")
 store = [];
