@@ -7,7 +7,7 @@ Topological Gift Wrapping 3D
 
 ```julia
 using Pkg
-Pkg.add(url="CPDTGW3D8a")
+Pkg.add(url="https://github.com/not-Karot/CPDTGW3D8a.git")
 ```
 It is strongly suggested to use tha last Julia version:
 [https://discourse.julialang.org/t/julia-v1-6-0-has-been-released/57938](https://discourse.julialang.org/t/julia-v1-6-0-has-been-released/57938)
