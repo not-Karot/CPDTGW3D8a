@@ -1,32 +1,19 @@
----
-title: |
-  Report\
-  CPD22 - Assignment #3\
-  Delivery #1
----
 
-::: titlepage
 ![image](images/logo-roma-tre-blu-corretto-500x271.jpg)\
-[Magistrale in ingnegneria informatica]{.smallcaps}
+Magistrale in ingnegneria informatica
 
-::: center
+
 Calcolo parallelo e distribuito\
 **LAR - Topological gift wrapping in 3D**\
 *Gruppo 8a*\
-:::
 
-\
 
-::: tabularx
-360ptl c c c\
-cName & Student ID\
+
+Name & Student ID\
 Ennio Malvati & 484998\
 Gianluca Di Lorenzo & 583630\
-Raffaele Scarano & 576304\
+Raffaele Scarano & 576304
 
-\
-:::
-:::
 
 # Introduzione
 
